@@ -1,6 +1,6 @@
 # Intro
 
-Solution of React exercise done by sermmor (Sergio Martín). You could read the original version (without solution) in Lemoncode repository https://github.com/Lemoncode/react-excercise/
+Solution for React exercise done by sermmor (Sergio Martín). You could read the original version (without solution) in Lemoncode repository https://github.com/Lemoncode/react-excercise/
 
 The goal of this sample to is get started with react.
 
