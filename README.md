@@ -1,5 +1,7 @@
 # Intro
 
+Solution for the execise done by sermmor (Sergio Martín). You could read the original version (without solution) in Lemoncode repository https://github.com/Lemoncode/react-excercise/
+
 The goal of this sample to is get started with react.
 
 We will get as starting point an application that displays a list of github members that
