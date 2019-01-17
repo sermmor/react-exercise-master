@@ -3,13 +3,10 @@ import {} from 'core-js';
 import { MemberEntity } from '../../model/member';
 import { memberAPI } from '../../api/memberAPI';
 import { GithubMemberCard } from './githubMemberCard';
-import { Grid } from '@material-ui/core';
 
 interface Props {
 }
 
-// We define members as a state (the compoment holding this will be a container
-// component)
 interface State {
   members: Array<MemberEntity>,
   nameOrganization: string,
@@ -31,7 +28,7 @@ export class MembersTableComponent extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    // set initial state
+    
     this.state = { members: [], nameOrganization: 'lemoncode'};
   }
 
