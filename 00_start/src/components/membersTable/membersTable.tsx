@@ -1,9 +1,9 @@
 import * as React from 'react';
+import {} from 'core-js';
 import { MemberEntity } from '../../model/member';
 import { memberAPI } from '../../api/memberAPI';
-import { MemberRow } from './memberRow';
-import { MemberHead } from './memberHead';
-import {} from 'core-js';
+import { GithubMemberCard } from './githubMemberCard';
+import { Grid } from '@material-ui/core';
 
 interface Props {
 }
@@ -15,7 +15,18 @@ interface State {
   nameOrganization: string,
 }
 
-// Nice tsx guide: https://github.com/Microsoft/TypeScript/wiki/JSX
+const cardListStyle = () : React.CSSProperties => ({
+  display: 'grid',
+  gridColumnStart: 1,
+  gridColumnEnd: 3,
+  gridTemplateColumns: 'auto auto auto',
+})
+
+const cardStyle = () : React.CSSProperties => ({
+  width: 400,
+  margin: 10,
+})
+
 export class MembersTableComponent extends React.Component<Props, State> {
 
   constructor(props: Props) {
@@ -30,7 +41,7 @@ export class MembersTableComponent extends React.Component<Props, State> {
     );
   }
 
-  setOrganizationName = (e) => {
+  setOrganizationName = (e : React.ChangeEvent<HTMLInputElement>) => {
     this.setState({nameOrganization: e.target.value});
   }
 
@@ -43,18 +54,13 @@ export class MembersTableComponent extends React.Component<Props, State> {
           value={this.state.nameOrganization} 
           onChange={this.setOrganizationName}/>
         <button onClick={this.loadMembers}>Load</button>
-        <table className="table">
-          <thead>
-            <MemberHead />
-          </thead>
-          <tbody>
-            {
-              this.state.members.map((member: MemberEntity) =>
-                <MemberRow key={member.id} member={member} />
-              )
-            }
-          </tbody>
-        </table>
+        <div style={cardListStyle()}>
+          {
+            this.state.members.map((member: MemberEntity) =>
+                <GithubMemberCard member={member} styleCard={cardStyle()}/>
+            )
+          }
+        </div>
       </div>
     );
   }
